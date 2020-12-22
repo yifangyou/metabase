@@ -35,7 +35,7 @@
              (dates/date-string->filter "2019-04-01~" [:field-literal "field" :type/DateTime]))))))
 
 (deftest date-string->range-test
-  (t/with-clock (t/mock-clock #t "2016-06-07T12:00Z")
+  (t/with-clock (t/mock-clock #t "2016-06-07T12:00:55Z")
     (doseq [[group s->expected]
             {"absolute datetimes"         {"Q1-2016"               {:end "2016-03-31", :start "2016-01-01"}
                                            "2016-02"               {:end "2016-02-29", :start "2016-02-01"}
@@ -43,26 +43,32 @@
                                            "2016-04-18~2016-04-23" {:end "2016-04-23", :start "2016-04-18"}
                                            "2016-04-18~"           {:start "2016-04-18"}
                                            "~2016-04-18"           {:end "2016-04-18"}}
-             "relative (past)"            {"past3days"    {:end "2016-06-06", :start "2016-06-04"}
-                                           "past3days~"   {:end "2016-06-07", :start "2016-06-04"}
-                                           "past7days"    {:end "2016-06-06", :start "2016-05-31"}
-                                           "past30days"   {:end "2016-06-06", :start "2016-05-08"}
-                                           "past2months"  {:end "2016-05-31", :start "2016-04-01"}
-                                           "past2months~" {:end "2016-06-30", :start "2016-04-01"}
-                                           "past13months" {:end "2016-05-31", :start "2015-05-01"}
-                                           "past1years"   {:end "2015-12-31", :start "2015-01-01"}
-                                           "past1years~"  {:end "2016-12-31", :start "2015-01-01"}
-                                           "past16years"  {:end "2015-12-31", :start "2000-01-01"}}
-             "relative (next)"            {"next3days"    {:end "2016-06-10", :start "2016-06-08"}
-                                           "next3days~"   {:end "2016-06-10", :start "2016-06-07"}
-                                           "next7days"    {:end "2016-06-14", :start "2016-06-08"}
-                                           "next30days"   {:end "2016-07-07", :start "2016-06-08"}
-                                           "next2months"  {:end "2016-08-31", :start "2016-07-01"}
-                                           "next2months~" {:end "2016-08-31", :start "2016-06-01"}
-                                           "next13months" {:end "2017-07-31", :start "2016-07-01"}
-                                           "next1years"   {:end "2017-12-31", :start "2017-01-01"}
-                                           "next1years~"  {:end "2017-12-31", :start "2016-01-01"}
-                                           "next16years"  {:end "2032-12-31", :start "2017-01-01"}}
+             "relative (past)"            {"past30seconds" {:end "2016-06-07T12:00:54", :start "2016-06-07T12:00:25"}
+                                           "past5minutes~" {:end "2016-06-07T12:00:00", :start "2016-06-07T11:55:00"}
+                                           "past3hours"    {:end "2016-06-07T11:00:00", :start "2016-06-07T09:00:00"}
+                                           "past3days"     {:end "2016-06-06", :start "2016-06-04"}
+                                           "past3days~"    {:end "2016-06-07", :start "2016-06-04"}
+                                           "past7days"     {:end "2016-06-06", :start "2016-05-31"}
+                                           "past30days"    {:end "2016-06-06", :start "2016-05-08"}
+                                           "past2months"   {:end "2016-05-31", :start "2016-04-01"}
+                                           "past2months~"  {:end "2016-06-30", :start "2016-04-01"}
+                                           "past13months"  {:end "2016-05-31", :start "2015-05-01"}
+                                           "past1years"    {:end "2015-12-31", :start "2015-01-01"}
+                                           "past1years~"   {:end "2016-12-31", :start "2015-01-01"}
+                                           "past16years"   {:end "2015-12-31", :start "2000-01-01"}}
+             "relative (next)"            {"next45seconds" {:end "2016-06-07T12:01:40", :start "2016-06-07T12:00:56"}
+                                           "next20minutes" {:end "2016-06-07T12:20:00", :start "2016-06-07T12:01:00"}
+                                           "next6hours"    {:end "2016-06-07T18:00:00", :start "2016-06-07T13:00:00"}
+                                           "next3days"     {:end "2016-06-10", :start "2016-06-08"}
+                                           "next3days~"    {:end "2016-06-10", :start "2016-06-07"}
+                                           "next7days"     {:end "2016-06-14", :start "2016-06-08"}
+                                           "next30days"    {:end "2016-07-07", :start "2016-06-08"}
+                                           "next2months"   {:end "2016-08-31", :start "2016-07-01"}
+                                           "next2months~"  {:end "2016-08-31", :start "2016-06-01"}
+                                           "next13months"  {:end "2017-07-31", :start "2016-07-01"}
+                                           "next1years"    {:end "2017-12-31", :start "2017-01-01"}
+                                           "next1years~"   {:end "2017-12-31", :start "2016-01-01"}
+                                           "next16years"   {:end "2032-12-31", :start "2017-01-01"}}
              "relative (this)"            {"thisday"   {:end "2016-06-07", :start "2016-06-07"}
                                            "thisweek"  {:end "2016-06-11", :start "2016-06-05"}
                                            "thismonth" {:end "2016-06-30", :start "2016-06-01"}

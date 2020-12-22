@@ -28,7 +28,6 @@ type Props = {
   filter: TimeIntervalFilter,
   onFilterChange: (filter: TimeIntervalFilter) => void,
   formatter: (value: any) => any,
-  hideTimeSelectors?: boolean,
   className?: string,
 };
 
@@ -83,7 +82,7 @@ export default class RelativeDatePicker extends Component {
             }
             intervals={intervals}
             formatter={formatter}
-            periods={this.props.hideTimeSelectors ? DATE_PERIODS : ALL_PERIODS}
+            periods={ALL_PERIODS}
           />
         </div>
       </div>
