@@ -161,6 +161,11 @@
   [_]
   [:name])
 
+(defmethod searchable-columns-for-model (class Card)
+  [_]
+  [:name
+   :dataset_query])
+
 (defmethod searchable-columns-for-model (class Table)
   [_]
   [:name
