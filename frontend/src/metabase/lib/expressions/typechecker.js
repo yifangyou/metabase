@@ -82,3 +82,94 @@ export function typeCheck(cst, rootType) {
   }
   new TypeChecker().visit(cst);
 }
+
+/*
+
+  Create a copy of the syntax tree where the unnecessary intermediate nodes
+  are not present anymore.
+
+  Example:
+  For a simple expression "42", the syntax tree produced by the parser is
+
+  expression <-- this is the root node
+    relationalExpression
+      additionExpression
+        multiplicationExpression
+          atomicExpression
+            numberLiteral
+
+  Meanwhile, the compact variant of the syntax tree:
+
+    numberLiteral
+
+*/
+
+export function compactSyntaxTree(node) {
+  if (!node) {
+    return;
+  }
+  const { name, children } = node;
+  let result = { name, children };
+
+  switch (name) {
+    case "any":
+    case "atomicExpression":
+    case "boolean":
+    case "booleanExpression":
+    case "string":
+      {
+        const expression = children.expression.map(compactSyntaxTree);
+        result =
+          expression.length === 1
+            ? expression[0]
+            : { name, children: { expression: expression } };
+      }
+      break;
+    case "additionExpression":
+    case "multiplicationExpression":
+    case "logicalAndExpression":
+    case "logicalOrExpression":
+    case "relationalExpression":
+      {
+        const operands = children.operands.map(compactSyntaxTree);
+        const operators = children.operators;
+        result =
+          operands.length === 1
+            ? operands[0]
+            : { name, children: { operators, operands } };
+      }
+      break;
+
+    case "functionExpression":
+      {
+        const { functionName, LParen, RParen } = children;
+        const args = children.arguments.map(compactSyntaxTree);
+        result = {
+          name,
+          children: { functionName, arguments: args, LParen, RParen },
+        };
+      }
+      break;
+
+    case "expression":
+    case "booleanUnaryExpression":
+    case "parenthesisExpression":
+      {
+        const expression = children.expression.map(compactSyntaxTree);
+        result = expression[0];
+      }
+      break;
+
+    case "logicalNotExpression":
+      {
+        const operands = children.operands.map(compactSyntaxTree);
+        const operators = children.operators;
+        result = { name, children: { operators, operands } };
+      }
+      break;
+    default:
+      break;
+  }
+
+  return result;
+}
