@@ -30,7 +30,7 @@ You'll need to wait a minute for the logging to kick in, but then you should be 
 You can also use the Papertrail logging service for collecting your application logs.
 
 - Click on `Configuration` on the left hand sidebar.
-- Scroll down to `Software Configuration` under the _Web Tier_ section and click the gear icon to edit those settings.
+- Under the _Web Tier_ section, scroll down to `Software Configuration` and click the gear icon.
 - Under `Environment Properties` add the following entries:
   - `PAPERTRAIL_HOST` - provided by Papertrail
   - `PAPERTRAIL_PORT` - provided by Papertrail
