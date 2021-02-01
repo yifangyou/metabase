@@ -16,7 +16,7 @@ To enable this logging, you have to go to the settings of the Load Balancer and 
 
 ## Application Logs
 
-If you want to retain the Metabase application logs you can do so by publishing then to an S3 bucket of your choice. Here's how:
+If you want to retain the Metabase application logs, you can publish them to an S3 bucket:
 
 - On your Metabase Elastic Beanstalk environment, click on the `Configuration` link in the navigation bar on the left side. On the configuration page, click on the `Edit` button next to `Software`.
 - Scroll down and then check the box under S3 log storage
