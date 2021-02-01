@@ -74,7 +74,7 @@ Before trying to enable HTTPS support, you must upload a server certificate to y
 
 - Go to Elastic Beanstalk and select your `Metabase` application.
 - Click on Environment that you would like to update.
-- Click on `Configuration` on the left hand sidebar.
+- One the left sidebar, click **Configuration**. 
 - Scroll down to `Load Balancer` and click the Edit button on the right of the screen.
 - On Listeners section, click on "Add Listener" and change the Protocol to HTTPS on the modal window that opens.
 - Set the value for `Port` to _443_.
