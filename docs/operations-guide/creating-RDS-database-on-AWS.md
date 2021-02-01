@@ -71,7 +71,7 @@ After having finished all the previous steps,go to the your Elastic Beanstalk de
 ---
 # Decouple your RDS database from the Elastic Beanstalk deployment
 
-In the previous versions of this guide, we included the creation and link of a database by default. While this was an easier approach to simplify the deployments, there are many users who can't easily manage the RDS database as it is deeply coupled with the CloudFormation script that was created and executed once they created their Metabase instance.
+In the previous versions of this guide, we recommended the creation of an Elastic Beanstalk deployment (AWS's service for deploying applications easily) that had a RDS (AWS's relational database service) database included in the creation by default thanks to the magic of CloudFormation (AWS's Infrastructure as a Code service). While this was an easier approach to simplify the deployments, we found out that this approach was not the optimal for building a future-proof architecture, since leaving to Elastic Beanstalk the creation of the database lead to limitations in the configuration of the database that would limit the choice for users. That's the reason why we now recommend to create the database separately from the Metabase deployment and glue them together manually, or even separate both components with this guide:
 
 
 - This procedure will generate downtime, so make sure to communicate your users that Metabase will be down while you recreate the environment with the new database.
