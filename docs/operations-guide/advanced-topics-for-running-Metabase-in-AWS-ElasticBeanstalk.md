@@ -23,7 +23,7 @@ If you want to retain the Metabase application logs you can do so by publishing 
 ![EB Enable Log Rotation](images/EBEnableS3LogRotatoin.png)
 - Click `Save` in the bottom right corner.
 
-After you click save your Environment will begin updating with your new change. You will have to wait a minute for this to complete and then you're good to go. Elastic Beanstalk will now periodically publish the application log files to S3 for you and you can download them and analyze them at your leisure.
+You'll need to wait a minute for the logging to kick in, but then you should be good to go. Elastic Beanstalk will now periodically publish the application log files to S3, which you can download whenever you need to analyze them.
 
 ## Using Papertrail for logging on AWS
 
