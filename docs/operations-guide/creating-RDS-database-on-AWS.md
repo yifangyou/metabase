@@ -72,9 +72,9 @@ After having finished all the previous steps, now you can go to the your Elastic
 
 In the previous versions of this guide, we included the creation and link of a database by default. While this was an easier approach to simplify the deployments, there are many users who can't easily manage the RDS database as it is deeply coupled with the CloudFormation script that was created and executed once they created their Metabase instance.
 
-**IMPORTANTE NOTES**: 
-- this procedure will generate downtime so make sure to communicate your users that Metabase will be down till you recreate the environment with the new database.
-- you will need the master username and password for the database you used when you created the Elastic Beanstalk instance
+
+- This procedure will generate downtime, so make sure to communicate your users that Metabase will be down while you recreate the environment with the new database.
+- You'll need the master username and password for the database you used when you created the Elastic Beanstalk instance.
 
 ## Step 1
 Identify the RDS endpoint that your Elastic Beanstalk is using by going to the configuration of the Environment and finding the endpoint value on the Database section.
