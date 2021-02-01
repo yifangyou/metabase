@@ -70,7 +70,7 @@ After creating the record, the record can take ten minutes (sometimes longer) to
 
 ## Modify Metabase to enforce HTTPS
 
-Before trying to enable HTTPS support you must upload a server certificate to your AWS account. Instructions above.
+Before trying to enable HTTPS support, you must upload a server certificate to your AWS account.
 
 - Go to Elastic Beanstalk and select your `Metabase` application.
 - Click on Environment that you would like to update.
