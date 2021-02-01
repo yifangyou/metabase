@@ -56,7 +56,7 @@ To configure the rule for the database, select the INBOUND rule, then click on t
 
 ![RDS Security Group Rules](images/RDSInboundRule.png)
 
-When you click on Inbound Rules, you need to click on `Edit Inbound Rules` button that appears on the right side of the section
+When you click on Inbound Rules, you need to click on **Edit Inbound Rules** button that appears on the right side of the section.
 
 ![RDS Edit Inbound Rule](images/RDSEditInboundRule.png)
 
