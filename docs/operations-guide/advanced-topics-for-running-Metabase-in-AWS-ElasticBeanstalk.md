@@ -57,14 +57,16 @@ Follow the steps to input your certificates details. Once you submit your certif
 ## Setup DNS CNAME (using AWS)
 
 - Open up AWS **Route 53** by navigating to **Services > Networking > Route 53** in the AWS Console header.
-- Click on **Hosted Zones** then click on the domain name you want to use for Metabase.
+- Click on **Hosted Zones**, then click on the domain name you want to use for Metabase.
 - Click on the blue button **Create Record** (a new panel will open up).
-  - Enter in a **Record name**: for your application. This should be the exact URL you plan to access Metabase with (e.g. `metabase.mycompany.com`).
+  - Enter in a **Record name**: for your application. This record name should be the exact URL you plan to access Metabase with (e.g. `metabase.mycompany.com`).
   - Under the dropdown for **Record type**: select _A – Routes traffic to an IPv4 address and some AWS resources_.
-  - Enable the **Alias** switch and on the box that is titled **Route traffic to:** select __Alias to Application and Classic Load Balancer__, region __US East (Ohio) [us-east-2]__ or the one that you deployed your instance to (e.g. `mycompany-metabase.elasticbeanstalk.com`).
-  - Choose the load balancer that corresponds to your instance (if this is a new AWS account there should be only one)
-  - Leave all other settings in their default values and click the **Create Record** button at the bottom of the page.
-  - _NOTE: After the record is created you must wait for your change to propagate on the internet. This can take 5-10 minutes, sometimes longer._
+  - Enable the **Alias** switch. For the **Route traffic to** option, select __Alias to Application and Classic Load Balancer__, region __US East (Ohio) [us-east-2]__, or the one that you deployed your instance to (e.g. `mycompany-metabase.elasticbeanstalk.com`).
+  - Choose the load balancer that corresponds to your instance.
+  - Leave all other settings in their default values.
+  - At the bottom of the page, click **Create Record** .
+ 
+After creating the record, the record can take ten minutes (sometimes longer) to propagate on the Internet.
 
 ## Modify Metabase to enforce HTTPS
 
