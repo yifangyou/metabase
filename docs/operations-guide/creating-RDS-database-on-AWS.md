@@ -65,7 +65,8 @@ On the edit page, you need to delete the IP address that appears as default, the
 ![RDS Edit Inbound Rule](images/RDSEditInboundRuleSG.png)
 
 # Step 4 
-After having finished all the previous steps, now you can go to the your Elastic Beanstalk deployment and add the RDS instance as the Application Database with [Environment variables](environment-variables.html) under the [Software configuration](running-metabase-on-elastic-beanstalk.html#set-or-change-environment-variables)
+
+After having finished all the previous steps,go to the your Elastic Beanstalk deployment and add the RDS instance as the Application Database with [Environment variables](environment-variables.html) under the [Software configuration](running-metabase-on-elastic-beanstalk.html#set-or-change-environment-variables).
 
 ---
 # Decouple your RDS database from the Elastic Beanstalk deployment
