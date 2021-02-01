@@ -60,7 +60,7 @@ When you click on Inbound Rules, you need to click on **Edit Inbound Rules** but
 
 ![RDS Edit Inbound Rule](images/RDSEditInboundRule.png)
 
-On the edit page, you need to delete the IP address that appears as default, then add the security group that the Elastic Beanstalk has (the Security group name will have the keyword AWSEBSecurityGroup  in its name). Once you add this security group, click the `Save rules button`.
+On the edit page, you need to delete the IP address that appears as default, then add the security group that the Elastic Beanstalk has (the Security group name will have the keyword AWSEBSecurityGroup  in its name). Once you add this security group, click the **Save rules** button.
 
 ![RDS Edit Inbound Rule](images/RDSEditInboundRuleSG.png)
 
