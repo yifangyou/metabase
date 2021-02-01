@@ -23,7 +23,7 @@ In AWS, enter RDS in the search box or select the service from the dropdown butt
 - Settings: type a unique `DB instance identifier` for your database. Also remember the username and a master password that you enter here as you will need those to configure the environment variables in Metabase.
 ![RDS Templates Section](images/RDSPostgresSettings.png)
 
-- Instance size: you can choose any instance size that will fit your needs. As this is the application database for Metabase, the sizing of the RDS instance depends on the number of Metabase instances that will be connected to this database, number of users that are using Metabase at once and the number of questions, dashboards and configurations that are saved. To start, a `t3.small` is a good choice.
+- Instance size: the sizing of the RDS instance depends on the number of Metabase instances that will be connected to this database, the number of simultaneous users who are using Metabase, and the number of questions, dashboards, and configurations that are saved. To start, a `t3.small` is a good choice.
 ![RDS Instance size](images/RDSInstanceSize.png)
 
 - Availability & Durability: on production deployments, you __should__ be using a Multi-AZ (Availability Zone) cluster, as this will ensure that the database does not goes down in case there is an issue on a single availability zone.
