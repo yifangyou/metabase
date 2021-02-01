@@ -19,15 +19,14 @@ To enable this logging, you have to go to the settings of the Load Balancer and 
 If you want to retain the Metabase application logs, you can publish them to an S3 bucket:
 
 - On your Metabase Elastic Beanstalk environment, click on the `Configuration` link in the navigation bar on the left side. On the configuration page, click on the `Edit` button next to `Software`.
-- Scroll down and then check the box under S3 log storage
-![EB Enable Log Rotation](images/EBEnableS3LogRotatoin.png)
+- Scroll down and then check the box next to **Enabled** in S3 log storage section
 - Click `Save` in the bottom right corner.
 
 You'll need to wait a minute for the logging to kick in, but then you should be good to go. Elastic Beanstalk will now periodically publish the application log files to S3, which you can download whenever you need to analyze them.
 
 ## Using Papertrail for logging on AWS
 
-You can also use the Papertrail logging service for collecting your application logs.
+You can also use the [Papertrail logging service](https://www.papertrail.com/) for collecting your application logs.
 
 - Click on `Configuration` on the left hand sidebar.
 - Under the _Web Tier_ section, scroll down to `Software Configuration` and click the gear icon.
@@ -45,12 +44,9 @@ There is no requirement to run Metabase over HTTPS, but we are sticklers for sec
 
 ## Upload a Server Certificate
 
-First, you need to open a new tab in your browser and open AWS certificate manager. Once inside, you have the options for provisioning certificates or become a private certificate authority. We will choose `Provision certificates` and we will click on `Get Started`.
-
-![EB Edit button in Software Configuration](images/CertManagerHome.png)
+First, you need to open a new tab in your browser and search for AWS certificate manager in your AWS Dashboard. Once inside, you have the options for provisioning certificates or become a private certificate authority. We will choose `Provision certificates` and we will click on `Get Started`.
 
 A blue button will appear on the top of the page with the feature to import certificates (you can also ask AWS for a new certificate if needed and they will provision one for you)
-![EB Edit button in Software Configuration](images/CertManagerImport.png)
 
 Follow the steps to input your certificates details. Once you submit your certificate details, you'll see the certificate in other tools of AWS (like HTTPS on your load balancer).
 
