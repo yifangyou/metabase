@@ -12,6 +12,8 @@
             [metabase.models.field :refer [Field]]
             [metabase.models.table :refer [Table]]
             [metabase.query-processor :as qp]
+            [metabase.query-processor.context.default :as context.default]
+            [metabase.query-processor.store :as qp.store]
             [metabase.sync :as sync]
             [metabase.sync.sync-metadata :as sync-metadata]
             [metabase.test :as mt]
@@ -548,3 +550,16 @@
           (sync/sync-database! database)
           (is (= #{"table_with_perms"}
                  (db/select-field :name Table :db_id (:id database)))))))))
+
+(deftest test-jdbc-fetch-size
+  (testing "JDBC fetch size is set correctly in statement from db details"
+    (mt/test-driver :postgres
+      (mt/with-temp Database [db {:engine :postgres, :details (assoc (:details (mt/db)) :fetch-size 14)}]
+        (mt/with-db db
+          (qp.store/with-store
+            (qp.store/fetch-and-store-database! (u/the-id db))
+            (let [max-rows 10000
+                  q        "SELECT 1;"
+                  ctx      (context.default/default-context)
+                  rs-fn    (fn [rs] (is (= 14 (.getFetchSize (.getStatement rs)))))]
+              (#'sql-jdbc.execute/run-fn-with-result-set :postgres q {} max-rows ctx rs-fn))))))))

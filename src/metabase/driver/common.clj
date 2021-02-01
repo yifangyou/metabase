@@ -107,6 +107,13 @@
   {:name         "additional-options"
    :display-name (deferred-tru "Additional JDBC connection string options")})
 
+(def default-fetch-size-details
+  "Fetch size parameter to set for query execution"
+  {:name         "fetch-size"
+   :display-name (deferred-tru "Fetch Size")
+   :type         :integer
+   :default      nil})
+
 (def default-options
   "Default options listed above, keyed by name. These keys can be listed in the plugin manifest to specify connection
   properties for drivers shipped as separate modules, e.g.:
@@ -123,7 +130,8 @@
    :password           default-password-details
    :port               default-port-details
    :ssl                default-ssl-details
-   :user               default-user-details})
+   :user               default-user-details
+   :fetch-size         default-fetch-size-details})
 
 
 ;;; +----------------------------------------------------------------------------------------------------------------+

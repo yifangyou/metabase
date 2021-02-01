@@ -87,7 +87,8 @@
      driver.common/default-password-details
      driver.common/default-ssl-details
      (assoc driver.common/default-additional-options-details
-            :placeholder "prepareThreshold=0")]))
+            :placeholder "prepareThreshold=0")
+     driver.common/default-fetch-size-details]))
 
 (defmethod driver/db-start-of-week :postgres
   [_]

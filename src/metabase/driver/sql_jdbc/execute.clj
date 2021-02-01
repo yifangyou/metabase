@@ -249,9 +249,11 @@
         (throw e)))))
 
 (defn- prepared-statement*
-  ^PreparedStatement [driver conn sql params canceled-chan]
+  ^PreparedStatement [driver fetch-size conn sql params canceled-chan]
   ;; if canceled-chan gets a message, cancel the PreparedStatement
   (let [^PreparedStatement stmt (prepared-statement driver conn sql params)]
+    (when (and (some? fetch-size) (> fetch-size 0))
+      (.setFetchSize stmt fetch-size))
     (a/go
       (when (a/<! canceled-chan)
         (log/debug (trs "Query canceled, calling PreparedStatement.cancel()"))
@@ -371,6 +373,18 @@
   (let [row-thunk (row-thunk driver rs rsmeta)]
     (qp.reducible/reducible-rows row-thunk canceled-chan)))
 
+(defn- run-fn-with-result-set
+  "Gets the JDBC ResultSet from running the given sql query with the given driver, params, max-rows, and context. Then,
+  executes the given rs-fn against it before closing."
+  [driver sql params max-rows context rs-fn]
+  (let [db (qp.store/database)
+        fs (:fetch-size (:details db))]
+    (with-open [conn (connection-with-timezone driver db (qp.timezone/report-timezone-id-if-supported))
+                stmt (doto (prepared-statement* driver fs conn sql params (context/canceled-chan context))
+                       (.setMaxRows max-rows))
+                rs   (execute-query! driver stmt)]
+        (rs-fn rs))))
+
 (defn execute-reducible-query
   "Default impl of `execute-reducible-query` for sql-jdbc drivers."
   {:added "0.35.0", :arglists '([driver query context respond] [driver sql params max-rows context respond])}
@@ -383,13 +397,11 @@
      (execute-reducible-query driver sql params max-rows context respond)))
 
   ([driver sql params max-rows context respond]
-   (with-open [conn (connection-with-timezone driver (qp.store/database) (qp.timezone/report-timezone-id-if-supported))
-               stmt (doto (prepared-statement* driver conn sql params (context/canceled-chan context))
-                      (.setMaxRows max-rows))
-               rs   (execute-query! driver stmt)]
-     (let [rsmeta           (.getMetaData rs)
-           results-metadata {:cols (column-metadata driver rsmeta)}]
-       (respond results-metadata (reducible-rows driver rs rsmeta (context/canceled-chan context)))))))
+   (letfn [(rs-fn [rs]
+             (let [rsmeta           (.getMetaData ^ResultSet rs)
+                   results-metadata {:cols (column-metadata driver rsmeta)}]
+               (respond results-metadata (reducible-rows driver rs rsmeta (context/canceled-chan context)))))]
+     (run-fn-with-result-set driver sql params max-rows context rs-fn))))
 
 ;;; +----------------------------------------------------------------------------------------------------------------+
 ;;; |                                       Convenience Imports from Old Impl                                        |
