@@ -80,7 +80,7 @@ In the previous versions of this guide, we included the creation and link of a d
 Identify the RDS endpoint that your Elastic Beanstalk is using by going to the configuration of the Environment and finding the endpoint value on the Database section.
 ![RDS endpooint](images/EBDatabaseEndpoint.png)
 - If the Retention option is "Create snapshot" you are good to go and you can proceed to delete the whole Elastic Beanstalk environment as a snapshot (backup) of the database will be taken before being deleted
-- In case the Retention option has other value, make sure to go to RDS, identify the database that is being used by the Elastic Beanstalk application, select it and take a snapshot
+- In case the Retention option has a different value, visit your RDS instance and take a snapshot of the database used by the Elastic Beanstalk application.
 ![RDS snapshot](images/RDSTakeSnapshot.png)
 
 ## Step 2
