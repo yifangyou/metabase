@@ -93,6 +93,6 @@ This step can take many minutes and may even fail for reasons only known by AWS 
 Head to RDS but this time head to the `Snapshots` option on the left of the page where you should see a Manual Snapshot being listed
 ![RDS Snapshots](images/RDSSnapshotsMenu.png)
 
-Select that snapshot and click on `Actions` -> Restore Snapshot
+Select that snapshot and click on **Actions** -> Restore Snapshot
 
 From this step on, you can follow the same steps as the [Configuring RDS for Metabase (the recommended guide)](#configuring-rds-for-metabase-the-recommended-guide) from [step 2](#step-2).
