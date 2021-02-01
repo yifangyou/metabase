@@ -18,7 +18,7 @@ To enable this logging, you have to go to the settings of the Load Balancer and 
 
 If you want to retain the Metabase application logs you can do so by publishing then to an S3 bucket of your choice. Here's how:
 
-- On your Metabase Elastic Beanstalk environment, click on the `Configuration` link in the navigation bar on the left side. You will be taken to a page with a number of boxes containing different configuration options for your environment. Click on the `Edit` button next to `Software`
+- On your Metabase Elastic Beanstalk environment, click on the `Configuration` link in the navigation bar on the left side. On the configuration page, click on the `Edit` button next to `Software`.
 - Scroll down and then check the box under S3 log storage
 ![EB Enable Log Rotation](images/EBEnableS3LogRotatoin.png)
 - Click `Save` in the bottom right corner.
