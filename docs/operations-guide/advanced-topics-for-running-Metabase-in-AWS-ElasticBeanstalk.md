@@ -85,7 +85,7 @@ Before trying to enable HTTPS support, you must upload a server certificate to y
   - _NOTE: Your Environment will begin updating with your new change. You will have to wait for this to complete before making additional updates._
   - _IMPORTANT: Once this change is made you will no longer be able to access your Metabase instance at the `*.elasticbeanstalk.com` URL provided by Amazon because it will result in a certificate mismatch. To continue accessing your secure Metabase instance you must [Setup a DNS CNAME](#setup-dns-cname)._
 
-Once your application is working properly over HTTPS we recommend setting an additional property to force non-HTTPS clients to use the HTTPS endpoint.
+Once your application is working properly over HTTPS, we recommend setting an additional property to force non-HTTPS clients to use the HTTPS endpoint.
 
 - Click on `Configuration` on the left hand sidebar.
 - Scroll down to `Software Configuration` under the _Web Tier_ section and click the gear icon to edit those settings.
