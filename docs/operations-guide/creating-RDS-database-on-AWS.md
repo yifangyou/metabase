@@ -39,7 +39,7 @@ In AWS, enter RDS in the search box or select RDS from the dropdown button on th
   - You can also configure the backup window in case you need to restore the backups at some point in time.
 ![RDS Initial Database](images/RDSInitialDatabase.png)
 
-When you have completed all these configurations, click on the `Create database` button on the lower right part of the page and wait for the database to be created (this can take several minutes).
+When you've completed all these configurations, click on the **Create database** button on the lower right part of the page and wait for the database to be created (which can take several minutes).
 
 ## Step 3
 Once the database status is `Available`, you need to click on the DB identifier:
