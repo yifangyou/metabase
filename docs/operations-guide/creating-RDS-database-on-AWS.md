@@ -30,8 +30,8 @@ In AWS, enter RDS in the search box or select the service from the dropdown butt
 ![RDS MultiAZ](images/RDSMultiAZ.png)
 
 - Connectivity: 
-  - ensure that you are deploying the database in the same VPC as the one you deployed the Metabase instance/s, otherwise they won't be able to see each other. 
-  - create a __VPC security group__, as you will need to grant access from the Metabase instance/s to the database on the port that listens for connections.
+  - Ensure that you are deploying the database in the same VPC as the one you deployed the Metabase instance/s, otherwise they won't be able to see each other. 
+  - Create a **VPC security group**, as you will need to grant access from the Metabase instance/s to the database on the port that listens for connections.
 ![RDS VPC Security Groups](images/RDSVPCSecurityGroup.png)
 
 - Additional configuration
