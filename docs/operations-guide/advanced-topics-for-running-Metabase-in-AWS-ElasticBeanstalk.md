@@ -41,7 +41,7 @@ _NOTE: Sometimes these settings will not apply until you restart your applicatio
 
 # Running Metabase over HTTPS
 
-This is only relevant if you plan to use HTTPS for your Metabase instance on AWS. There is no requirement to do this, but we are sticklers for security and believe you should always be careful with your data.
+There is no requirement to run Metabase over HTTPS, but we are sticklers for security and believe you should always be careful with your data. Here's how to set up HTTPS on AWS.
 
 ## Upload a Server Certificate
 
