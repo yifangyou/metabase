@@ -72,7 +72,7 @@ After creating the record, the record can take ten minutes (sometimes longer) to
 
 Before trying to enable HTTPS support, you must upload a server certificate to your AWS account.
 
-- Go to Elastic Beanstalk and select your `Metabase` application.
+- Go to Elastic Beanstalk and select your **Metabase** application.
 - Click on Environment that you would like to update.
 - One the left sidebar, click **Configuration**. 
 - Scroll down to `Load Balancer` and click the Edit button on the right of the screen.
