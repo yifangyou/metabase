@@ -20,7 +20,7 @@ In AWS, enter RDS in the search box or select the service from the dropdown butt
 
 - Templates: you can leave "Production" selected, or choose any other option that better suits your needs.
 
-- Settings: type a unique `DB instance identifier` for your database. Also remember the username and a master password that you enter here as you will need those to configure the environment variables in Metabase.
+- Settings: type a unique **DB instance identifier** for your database. You'll need the username and master password to configure the environment variables in Metabase.
 ![RDS Templates Section](images/RDSPostgresSettings.png)
 
 - Instance size: the sizing of the RDS instance depends on the number of Metabase instances that will be connected to this database, the number of simultaneous users who are using Metabase, and the number of questions, dashboards, and configurations that are saved. To start, a `t3.small` is a good choice.
