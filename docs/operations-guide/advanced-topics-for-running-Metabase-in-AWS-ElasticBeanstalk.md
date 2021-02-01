@@ -52,7 +52,7 @@ First, you need to open a new tab in your browser and open AWS certificate manag
 A blue button will appear on the top of the page with the feature to import certificates (you can also ask AWS for a new certificate if needed and they will provision one for you)
 ![EB Edit button in Software Configuration](images/CertManagerImport.png)
 
-On the following screens, you will have to input all the details and data about the certificate you want to import. After having followed the steps, you will now see the certificate in other tools of AWS (like HTTPS on your load balancer)
+Follow the steps to input your certificates details. Once you submit your certificate details, you'll see the certificate in other tools of AWS (like HTTPS on your load balancer).
 
 ## Setup DNS CNAME (using AWS)
 
