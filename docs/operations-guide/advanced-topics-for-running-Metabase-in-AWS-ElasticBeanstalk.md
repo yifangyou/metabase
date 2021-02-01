@@ -28,13 +28,13 @@ You'll need to wait a minute for the logging to kick in, but then you should be 
 
 You can also use the [Papertrail logging service](https://www.papertrail.com/) for collecting your application logs.
 
-- Click on `Configuration` on the left hand sidebar.
-- Under the _Web Tier_ section, scroll down to `Software Configuration` and click the gear icon.
-- Under `Environment Properties` add the following entries:
+- Click on **Configuration** on the left hand sidebar.
+- Under the _Web Tier_ section, scroll down to **Software Configuration** and click the gear icon.
+- Under **Environment Properties** add the following entries:
   - `PAPERTRAIL_HOST` - provided by Papertrail
   - `PAPERTRAIL_PORT` - provided by Papertrail
   - `PAPERTRAIL_HOSTNAME` - the name you want to see showing up in Papertrail for this server
-- Scroll to the bottom of the page and click `Apply` in the lower right, then wait for your application to update.
+- Scroll to the bottom of the page and click **Apply** in the lower right, then wait for your application to update.
 
 _NOTE: Sometimes these settings will not apply until you restart your application server, which you can do by either choosing `Restart App Server(s)` from the Actions dropdown or by deploying the same version again._
 
@@ -84,7 +84,7 @@ Before trying to enable HTTPS support, you must upload a server certificate to y
 
 Once your application is working properly over HTTPS, we recommend setting an additional property to force non-HTTPS clients to use the HTTPS endpoint.
 
-- Click on `Configuration` on the left hand sidebar.
-- Scroll down to `Software Configuration` under the _Web Tier_ section and click the gear icon to edit those settings.
-- Under `Environment Properties` add an entry for `NGINX_FORCE_SSL` with a value of `1`.
-- Scroll to the bottom of the page and click `Apply` in the lower right, then wait for your application to update.
+- Click on **Configuration** on the left hand sidebar.
+- Scroll down to **Software Configuration** under the _Web Tier_ section and click the gear icon to edit those settings.
+- Under **Environment Properties** add an entry for `NGINX_FORCE_SSL` with a value of `1`.
+- Scroll to the bottom of the page and click **Apply** in the lower right, then wait for your application to update.
