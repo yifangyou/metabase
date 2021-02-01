@@ -87,7 +87,7 @@ Identify the RDS endpoint that your Elastic Beanstalk is using by going to the c
 Go to the Elastic Beanstalk Metabase Application, select the running environment and terminate it (make sure that in the confirmation that pops up says that the database will be terminated __with snapshot__)
 ![Terminate environment](images/EBTerminateEnvironment.png)
 
-This step can take many minutes and may even fail for reasons only known by AWS so you will have to identify through CloudFormation which resources failed to be deleted and delete them yourself.
+This step can take many minutes. If the deletion fails, you'll have to identify through CloudFormation which resources failed to be deleted and delete them yourself.
 
 ## Step 3
 Return to RDS and select the **Snapshots** option on the left of the page. You should see a Manual Snapshot listed
