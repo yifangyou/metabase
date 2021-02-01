@@ -27,7 +27,7 @@ After you click save your Environment will begin updating with your new change. 
 
 ## Using Papertrail for logging on AWS
 
-This provides a simple way to use the Papertrail logging service for collecting the logs for you Metabase instance in an easy to read location.
+You can also use the Papertrail logging service for collecting your application logs.
 
 - Click on `Configuration` on the left hand sidebar.
 - Scroll down to `Software Configuration` under the _Web Tier_ section and click the gear icon to edit those settings.
