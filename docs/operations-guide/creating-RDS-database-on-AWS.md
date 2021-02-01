@@ -35,8 +35,8 @@ In AWS, enter RDS in the search box or select the service from the dropdown butt
 ![RDS VPC Security Groups](images/RDSVPCSecurityGroup.png)
 
 - Additional configuration
-  - enter `metabase` as the `Initial database name` as this will be the database that Metabase will use for all of its configurations. 
-  - you can also configure the backup window in case you need to restore the backups at some point in time.
+  - Enter `metabase` as the **Initial database name**. Metabase will use this database for all of its configurations. 
+  - You can also configure the backup window in case you need to restore the backups at some point in time.
 ![RDS Initial Database](images/RDSInitialDatabase.png)
 
 When you have completed all these configurations, click on the `Create database` button on the lower right part of the page and wait for the database to be created (this can take several minutes).
