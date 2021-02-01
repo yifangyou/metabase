@@ -18,7 +18,7 @@ In AWS, enter RDS in the search box or select the service from the dropdown butt
 ## Step 2
 - Create Database: select MySQL or PostgreSQL as engine types, as these two are the ones that Metabase support as the Application Database (where Metabase will save all of its configurations). For this example we will choose PostgreSQL on its latest version available in AWS at this time (12.4-R1)
 
-- Templates: you can leave `Production` selected or choose any other option that better suits your needs.
+- Templates: you can leave "Production" selected, or choose any other option that better suits your needs.
 
 - Settings: type a unique `DB instance identifier` for your database. Also remember the username and a master password that you enter here as you will need those to configure the environment variables in Metabase.
 ![RDS Templates Section](images/RDSPostgresSettings.png)
