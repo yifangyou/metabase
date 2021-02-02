@@ -80,11 +80,12 @@
    (map #(hits->ratio % (count tokens)))))
 
 (def ^:private consecutivity-scorer
-  "Score in [0, 1] based on the length of the largest matching sub-expression"
   (partial largest-common-subseq-length matches?))
 
+(def ^:private exact-match-scorer
+  (partial largest-common-subseq-length =))
+
 (defn- total-occurrences-scorer
-  "Score in [0, 1] based on the number of search terms found"
   [tokens haystack]
   (->> tokens
        (map #(if (matches-in? % haystack) 1 0))
@@ -95,4 +96,7 @@
   (let [query-tokens (tokenize query)]
     (reduce +
             (score-with [consecutivity-scorer
-                         total-occurrences-scorer]))))
+                         total-occurrences-scorer
+                         exact-match-scorer]
+                        query-tokens
+                        result))))
